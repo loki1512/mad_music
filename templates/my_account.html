@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account</title>
+    <link rel="stylesheet" href="/static/my_account.css">
+</head>
+<body>
+    <div class="header">
+        <div class="headerlinks">
+            <a href="#" class="headerheading">MAD MUSIC</a>
+            {%if user.usertype==2%}
+            <a href="/admin" class="headerlink" >Dashboard |</a>
+            {%else%}
+            <a href="/{{user.username}}/home" class="headerlink" >Home |</a>
+            {%endif%}
+            <a href="creator" class="headerlink">Creator Zone |</a>
+            
+            <a href="/{{user.username}}/playlists" class="headerlink"> Playlists |</a>
+            <a href="/{{user.username}}/my_space" class="headerlink"> My Space |</a>
+            <a href="/logout" class="headerlink"> logout</a>
+        </div>
+    </div>
+    <div class="container">
+        <h1>Account Details</h1>
+        <table>
+            <tr>
+                <td>Username:</td>
+                <td>{{ user.username }}</td>
+            </tr>
+            <tr>
+                <td>Contact No:</td>
+                <td>{{ user.contact }}</td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <td>Nickname:</td>
+                <td>{{ user.nickname }}</td>
+            </tr>
+        </table>
+        <h1>Your Playlists</h1>
+        <div class="playlist-section">
+            {% if playlists == None %}
+                <h2>So far you did not create any playlists</h2>
+            {%endif%}
+            {% for playlist in playlists %}
+                <div class="playlist">
+                    <h2>{{playlist.Playlist_name}}</h2>
+                    <a href="/{{user.username}}/{{ playlist.id }}/view">View</a>
+                </div>
+            {% endfor %}
+            <div class="playlist">
+                <a class="Button" href="/{{user.username}}/create_playlist">Create Playlist</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

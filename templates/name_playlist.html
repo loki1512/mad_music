@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Playlist</title>
+    <link rel="stylesheet" href="/static/name_playlist.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <div class="form-container">
+        <form action="/{{user.username}}/create_playlist" method="POST" class="playlist-form">
+            <label for="name">Playlist Name:</label>
+            <input type="text" id="name" name="name">
+            <input type="submit" value="Create">
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Songs</title>
+    <link rel="stylesheet" href="/static/all_songs.css">
+</head>
+<body>
+    <div class="header">
+        <div class="headerlinks">
+            <a href="#" class="headerheading">All Songs</a>
+            <form id="form" role="search" class="headerlinks" method="POST" action="/{{user.username}}/home">
+                <label for="query" class="headerlink">Search</label>
+                <input class="headerlink" type="search" name="q" id="query" placeholder="Search..." aria-label="Search through site content">
+                <input class="headerlink" type="submit" value="Go">
+            </form>
+            {%if user.usertype==2%}
+            <a href="/admin" class="headerlink" >Dashboard |</a>
+            {%else%}
+            <a href="/{{user.username}}/home" class="headerlink" >Home |</a>
+            {%endif%}
+            <a href="#" class="headerlink"> Explore |</a>
+            <a href="/{{user.username}}/playlists" class="headerlink"> Playlists |</a>
+            <a href="/{{user.username}}/my_space" class="headerlink"> My Space</a>
+        </div>
+    </div>
+    <div class="container">
+        <h1>Latest Songs</h1>
+        <table class="songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Creator</th>
+                    <th>Genre</th>
+                    <th>Rating</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for song in songs %}
+                {%if song.flagged==1%}
+                    <tr class="flagged">
+                        <td>{{song.song_name}}</td>
+                        <td>{{song.creator}}</td>
+                        <td>{{song.genre}}</td>
+                        <td>5</td>
+                        <td>
+                            <a href="/{{user.username}}/{{song.song_id}}/read_lyrics" class="action">View</a>
+                            {%if user.username==song.creator or user.usertype==2%}
+                            <a href="/{{user.username}}/{{song.song_id}}/delete" class="action">Delete</a>
+                            {%endif%}
+                        </td>
+                    </tr>
+                {%else%}
+                <tr>
+                    <td>{{song.song_name}}</td>
+                    <td>{{song.creator}}</td>
+                    <td>{{song.genre}}</td>
+                    <td>5</td>
+                    <td>
+                        <a href="/{{user.username}}/{{song.song_id}}/read_lyrics" class="action">View</a>
+                        {%if user.username==song.creator or user.usertype==2%}
+                        <a href="/{{user.username}}/{{song.song_id}}/delete" class="action">Delete</a>
+                        {%endif%}
+                    </td>
+                </tr>
+                {%endif%}
+                {% endfor %}
+            </tbody>
+        </table>
+        {%if user.usertype == 2%}
+        <a href="/admin">Back to Dashboard</a>
+        {%else%}
+        <a href="/{{user.username}}/home" class="button">Back to Home</a>
+        {%endif%}
+    </div>
+</body>
+</html>

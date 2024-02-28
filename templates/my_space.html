@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/landing.css">
+    <title>Welcome</title>
+</head>
+<body>
+    <div class="Header">
+        <a href="#" class="HeaderHeading">{{user.nickname}}'s own space</a>
+        <a href="/{{user.username}}/home" class="LandingHeaderContent">Home</a>
+        
+    </div>
+    <div class="Content">
+        <div class="container">
+            <div class="welcome">
+                Hello {{user.nickname}}! What's on your mind??
+            </div>
+            <div class="buttons">
+                <a href="/{{user.username}}/creator" class="Button">Creator Space</a>
+                <a href="/{{user.username}}/my_account" class="Button">My Account</a>
+                <a href="/logout" class="Button">Logout</a>
+            </div>
+
+        </div>
+    </div>
+    <div class="Footer">
+        <span class="copy">copyright, 2023</span>
+    </div>
+</body>
+</html>

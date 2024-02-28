@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/read_lyrics.css">
+    <title>Read Lyrics</title>
+</head>
+<body>
+    <div class="header">
+        <div class="headerlinks">
+            <a href="#" class="headerheading">{{song.song_name}}:Read Lyrics</a>
+            {%if user.usertype==2%}
+            <a href="/admin" class="headerlink" >Dashboard |</a>
+            {%else%}
+            <a href="../creator" class="headerlink">Creator Zone |</a>
+            {%endif%}
+            
+            <a href="#" class="headerlink"> Explore |</a>
+            <a href="/{{user.username}}/playlists" class="headerlink"> Playlists |</a>
+            <a href="/{{user.username}}/my_space" class="headerlink"> My Space |</a>
+            <a href="/{{user.username}}/my_account" class="headerlink"> Logged in as {{user.nickname}}</a>
+        </div>
+    </div>
+    <div class="container">
+        <span>Song: {{song.song_name}}</span>
+        <span>Creator: {{song.creator}}</span>
+        <span>Rating : {{song.rating}} from {{song.reviews}} reviews</span>
+        {%if song.flagged==1%}
+        <span>FLAGGED</span>
+        {%endif%}
+    </div>
+    <div class="lyrics_container">
+        <h1>{{song.song_name}}</h1>
+        <p>{{song.lyrics}}</p>
+    </div> 
+    <div class="actions">
+        {%if user.username == song.creator or user.usertype==2%}
+        <a href="/{{user.username}}/{{song.song_id}}/edit">Edit Song</a>
+        <a href="/{{user.username}}/{{song.song_id}}/delete">Delete Song</a>
+        {%else%}
+        <a href="/{{user.username}}/{{song.song_id}}/rate">Rate Song</a>
+        {%endif%}
+        <a href="/{{user.username}}/{{song.song_id}}/add_to_playlist">Add to Playlist</a>
+        {% if user.usertype==2%}
+        {%if song.flagged==1%}
+        <a href="/admin/{{song.song_id}}/flag">Unflag</a>
+        {%else%}
+        <a href="/admin/{{song.song_id}}/flag">Flag</a>
+        {%endif%}
+        <a href="/admin">Dashboard</a>
+        {%else%}
+        <a href="/{{user.username}}/home">Back to Hame</a>
+        {%endif%}
+    </div>
+</body>
+</html>

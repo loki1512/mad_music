@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Songs</title>
+    <link rel="stylesheet" href="/static/all_songs.css">
+</head>
+<body>
+    <div class="header">
+        <div class="headerlinks">
+            <a href="#" class="headerheading">USER VIEW</a>
+            
+            <a href="/admin" class="headerlink" >Dashboard |</a>
+            {%if user.flagged == 1%}
+            <a href="/admin/{{user.username}}/flag_user" class="headerlink"> Unflag User |</a>
+            {%else%}
+            <a href="/admin/{{user.username}}/flag_user" class="headerlink"> Flag User |</a>
+            {%endif%}
+
+            <a href="/logout" class="headerlink"> Logout</a>
+            
+        </div>
+    </div>
+    <div class="container">
+        <h2>Details of {{user.username}}</h2>
+        <h1>Songs by {{user.username}}</h1>
+        <table class="songs-table">
+            <thead>
+                <tr>
+                    <th>Songs</th>
+                    <th>Creator</th>
+                    <th>Genre</th>
+                    <th>Rating</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for song in songs %}
+                {%if song.flagged==1%}
+                <tr class="flagged">
+                    <td>{{song.song_name}}</td>
+                    <td>{{song.creator}}</td>
+                    <td>{{song.genre}}</td>
+                    <td>5</td>
+                    <td>
+                        <a href="/admin/{{song.song_id}}/read_lyrics" class="action">View</a>
+                        {%if user.username==song.creator or user.usertype==2%}
+                        <a href="/admin/{{song.song_id}}/delete" class="action">Delete</a>
+                        {%endif%}
+                    </td>
+                </tr>
+                {%else%}
+                <tr>
+                    <td>{{song.song_name}}</td>
+                    <td>{{song.creator}}</td>
+                    <td>{{song.genre}}</td>
+                    <td>5</td>
+                    <td>
+                        <a href="/admin/{{song.song_id}}/read_lyrics" class="action">View</a>
+                        {%if user.username==song.creator or user.usertype==2%}
+                        <a href="/admin/{{song.song_id}}/delete" class="action">Delete</a>
+                        {%endif%}
+                    </td>
+                </tr>
+                {%endif%}
+                {% endfor %}
+            </tbody>
+        </table>
+        <h1>Playlists by {{user.username}}</h1>
+        <table class="songs-table">
+            <thead>
+                <tr>
+                    <th>Playlist</th>
+                    <th>Creator</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for playlist in playlists %}
+                    <tr>
+                        <td>{{playlist.Playlist_name}}</td>
+                        <td>{{playlist.created_by}}</td>
+                        <td>
+                            <a href="/{{user.username}}/{{playlist.id}}/view" class="action">View</a>
+                            <a href="/admin/{{playlist.id}}/delete_playlist" class="action">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/users" class="button">Back</a>
+    </div>
+</body>
+</html>

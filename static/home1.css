@@ -1,0 +1,151 @@
+/* Global reset and basic styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #141414; /* Dark background */
+    color: #ffffff; /* Bright text */
+}
+
+a {
+    text-decoration: none;
+    color: #ffcc00; /* Dark yellow */
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #00bcd4; /* Cyan */
+}
+
+/* Header Styles */
+.header {
+    background-color: #003300; /* Dark green */
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.headerlinks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.headerlink {
+    font-size: 1.2rem;
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+.headerlink:hover {
+    color: #ffcc00;
+}
+
+.headerheading {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+}
+.search{
+    font-size: 1.2rem;
+    color: black;
+    transition: color 0.3s ease;
+}
+/* Content Styles */
+.content {
+    padding: 30px;
+}
+
+.textcontainer {
+    margin-top: 50px;
+    text-align: center;
+}
+
+
+
+/* Content Styles */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.inner_container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 20px;
+}
+
+.item {
+    position: relative;
+    flex: 0 0 auto;
+    width: 250px;
+    background-color: #003366; /* Dark blue */
+    border: 1px solid #002050; /* Darker blue */
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.item:hover {
+    transform: translateY(-2px);
+}
+
+/* ... (rest of the previous CSS remains unchanged) ... */
+
+.dir_container {
+    position: absolute;
+    bottom: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.song_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.details ul {
+    list-style: none;
+    padding: 0;
+}
+
+.details ul li {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.Button {
+    display: inline-block;
+    align-items: center;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #ffcc00; /* Dark yellow */
+    color: #003300; /* Dark green */
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.Button:hover {
+    background-color: #00bcd4; /* Cyan */
+    color: navy;
+}
+
+/* Footer Styles */
+footer {
+    height: 100px;
+    width: 100%;
+    background-color: #333333; /* Dark grey */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff; /* Bright text */
+    text-align: center;
+    padding-right: 500px;
+}

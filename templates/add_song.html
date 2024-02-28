@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Song</title>
+    <link rel="stylesheet" href="/static/add_song.css">
+</head>
+<body>
+    <h1>Dear {{user.nickname}} , Write your next hit</h1>
+    <form action="add_song" method="POST" class="form">
+        <label for="song_name" class="label">Song Name</label>
+        <input type="text" id="song_name" name="song_name" class="input">
+        <label for="genre" class="label">Genre</label>
+        <input type="text" id="genre" name="genre" class="input">
+        <label for="lyrics" class="label">Lyrics</label>
+        <textarea name="lyrics" id="lyrics" cols="30" rows="10" class="textarea"></textarea>
+        <input type="submit" value="+Add" class="button">
+        <a href="/{{user.username}}/creator">Back to Creator Space</a>
+    </form>
+    
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/creator.css">
+    <title>Home</title>
+</head>
+<body>
+    <div class="header">
+        <div class="headerlinks">
+            <a href="#" class="headerheading">{{user.nickname}}'s Creator Dashboard</a>
+            <form id="form" role="search" class="headerlinks" method="post" action="/{{user.username}}/creator">
+                <label for="query" class="headerlink">Search</label>
+                <input class="search" type="search" name="query" id="query" placeholder="Search..." aria-label="Search through site content">
+                <input type="submit" value="Go">
+            </form>
+            {%if user.usertype==2%}
+            <a href="/admin" class="headerlink" >Dashboard |</a>
+            {%else%}
+            <a href="/{{user.username}}/home" class="headerlink" >Home |</a>
+            {%endif%}
+            <a href="/{{user.username}}/playlists" class="headerlink"> Playlists |</a>
+            <a href="/{{user.username}}/my_space" class="headerlink"> My Space</a>
+        </div>
+    </div>
+    <div class="content">
+    {% if user.usertype == 0%}
+    <div class="item">
+        <div class="dir_container">
+            <a class="Button" href="/{{user.username}}/become_creator">Become Creator</a>
+        </div>
+    </div>
+    {% endif %}
+    {% if user.usertype == 1%}
+    <div class="textcontainer">
+        <h1>Your Recent Songs</h1>
+    </div>
+    
+    <div class="container">
+        <div class="inner_container">
+            {% for song in songs %}
+            <div class="item">
+                <div class="song_container">
+                    <div class="details"> 
+                    <ul>
+                            <li>Song: {{song.song_name}}</li>
+                            <li>Creator: {{song.creator}}</li>
+                            <li>Genre: {{song.genre}}</li>
+                    </ul>
+                    </div>
+                        <div class="song">
+                            <a href="/{{user.username}}/{{song.song_id}}/read_lyrics">Manage</a>  
+                        </div>
+                </div>
+
+            </div>
+            {% endfor %}
+            <div class="item">
+                <div class="dir_container">
+                    <p><a class="Button" href="creator/all_songs">All Songs</a></p>    
+                </div>
+            </div>
+            <div class="item">
+                <div class="dir_container">
+                    <p><a class="Button" href="creator/add_song">New Song</a></p>    
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="textcontainer">
+        <h1>Your Playlists</h1>
+    </div>
+    <div class="container">
+        <div class="inner_container">
+            {% for playlist in playlists %}
+            <div class="item">
+                <div class="song_container">
+                    <div class="details"> 
+                    <ul>
+                            <li>Name: {{playlist.Playlist_name}}</li>
+                            <li>Creator: {{playlist.created_by}}</li>
+                    </ul>
+                    </div>
+                        <div class="song">
+                            <a href="/{{user.username}}/{{playlist.id}}/view">View</a>  
+                        </div>
+                </div>
+
+            </div>
+            {% endfor %}
+            <div class="item">
+                <div class="dir_container">
+                    <a class="Button" href="/{{user.username}}/playlists">More</a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="dir_container">
+                    <a class="Button" href="/{{user.username}}/create_playlist">New Playlist</a>
+                </div>
+            </div>
+                
+        </div>
+    </div>
+    </div>
+    {% endif %}
+    </div>
+    <div class="footer">
+        <p>&copy; 2023 MAD Music</p>
+    </div>
+</body>
+</html>

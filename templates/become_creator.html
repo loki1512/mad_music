@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/landing.css">
+    <title>Become a Creator</title>
+</head>
+<body>
+    <div class="Content">
+    <div class="container">
+    <div class="login">
+        <h1>Welcome to the family of creators</h1>
+        <form action="/{{user.username}}/become_creator" method="POST">
+            <p>
+            <label for="text">enter <i>"I AGREE" </i> to continue</label>
+            <input class='field' type="text" id="text" name="text">
+            </p>
+            <p class="field">
+            <input class="Button"type="submit" value="Continue">
+            </p>
+            
+            {% if status==1 %}
+                <p>Enter the correct text</p>
+            {% endif %}
+            <p><a href="/{{user.username}}/home">Back</a></p>
+        </form>
+    </div>
+    </div>
+    </div>
+</body>
+</html>

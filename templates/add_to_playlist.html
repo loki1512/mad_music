@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/name_playlist.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add to Playlist</title>
+</head>
+<body>
+    <div class="form-container">
+        <form action="/{{user.username}}/{{song.song_id}}/add_to_playlist" method="POST" class="playlist-form">
+            <label for="playlist">Choose a Playlist</label>
+            <select name="playlist" id="playlist">
+                {% for playlist in playlists %}
+                <option value="{{playlist.Playlist_name}}">{{playlist.Playlist_name}}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Add">
+            <a href="/{{user.username}}/{{song.song_id}}/create_new_playlist">Create new Playlist</a>
+        </form>
+        
+    </div>
+        
+</body>
+</html>

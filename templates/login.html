@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/landing.css">
+    <title>Login Page</title>
+</head>
+<body>
+    <div class="Header">
+        <a href="#" class="HeaderHeading">MAD Music</a>
+        <div class="HeaderContent">
+            <a href="/adminlogin" class="LandingHeaderContent">Admin Login</a>
+            <a href="/register" class="LandingHeaderContent">Register</a>
+        </div>
+    </div>
+    <div class="Content">
+        <div class="container">
+            <div class="welcome">
+                Welcome Back!
+            </div>
+            <div class="login">
+                <form action="/login" method="POST">
+                    <div class="field">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" placeholder="Enter Your Login Id">
+                    </div>
+                    <div class="field">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" placeholder="Enter Your Password">
+                    </div>
+                    <div class="field">
+                        <input type="submit" value="Login" class="Button">
+                    </div>
+                    
+                </form>
+                
+                {% if status == 1 %}
+                        <p>Invalid Username or password</p>
+                    {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="Footer">
+        <span class="copy">Copyright, 2023</span>
+    </div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Songs</title>
+    <link rel="stylesheet" href="/static/all_songs.css">
+</head>
+<body>
+    <div class="header">
+        <div class="headerlinks">
+            <a href="#" class="headerheading">MAD MUSIC</a>
+            {%if user.usertype==2%}
+            <a href="/admin" class="headerlink" >Dashboard |</a>
+            {%else%}
+            <a href="/{{user.username}}/home" class="headerlink" >Home |</a>
+            {%endif%}
+            <a href="#" class="headerlink"> Explore </a>
+            <a href="#" class="headerlink"> Playlists </a>
+            <a href="/{{user.username}}/my_space" class="headerlink"> My Space</a>
+            <a href="/{{user.username}}/my_account" class="headerlink">logged in as {{user.nickname}}</a>
+        </div>
+    </div>
+    <div class="container">
+        <h1>All songs by {{user.nickname}}</h1>
+        <table class="songs-table">
+            <thead>
+                <tr>
+                    <th>Songs</th>
+                    <th>Creator</th>
+                    <th>Genre</th>
+                    <th>Rating</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for song in songs %}
+                    {%if song.flagged==1%}
+                    <tr class="flagged">
+                        <td>{{song.song_name}}</td>
+                        <td>{{song.creator}}</td>
+                        <td>{{song.genre}}</td>
+                        <td>{{song.rating}}</td>
+                        <td>
+                            <a href="/{{user.username}}/{{song.song_id}}/delete" class="action">Delete</a>
+                            <a href="/{{user.username}}/{{song.song_id}}/edit" class="action">Edit Details</a>
+                        </td>
+                    </tr>
+                    {%else%}
+                    <tr>
+                        <td>{{song.song_name}}</td>
+                        <td>{{song.creator}}</td>
+                        <td>{{song.genre}}</td>
+                        <td>{{song.rating}}</td>
+                        <td>
+                            <a href="/{{user.username}}/{{song.song_id}}/delete" class="action">Delete</a>
+                            <a href="/{{user.username}}/{{song.song_id}}/edit" class="action">Edit Details</a>
+                        </td>
+                    </tr>
+                    {%endif%}
+                        
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="actions">
+        <a href="/{{user.username}}/creator">Back to Creator Zone</a>
+        <a href="/{{user.username}}/creator/add_song">Add Song</a>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color:#160a41;
+    color:#ffffff;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+a{
+    text-decoration: none;
+    display: block;
+    background-color: #ddd;
+    color: #000;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.user-table th,
+.user-table td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+    text-align:center;
+    
+}
+
+.user-table th {
+    background-color: #f2f2f2;
+    color: #000;
+}
+.user-table td a{
+    border-radius:5px;
+    text-decoration:none;
+    color:white;
+    display: inline-block;
+    padding:2px;
+    width:30%;
+    text-align:center;
+    background-color:brown;
+    margin-top:5px;
+}
+.user-table td a:hover{
+    border-radius:5px;
+    text-decoration:none;
+    color:white;
+    display: inline-block;
+    padding:2px;
+    width:30%;
+    text-align:center;
+    background-color:green;
+    margin-top:5px;
+}
+
+.user-table tr:nth-child(even) {
+    background-color: "blue";
+}
+
+.user-table tr:hover {
+    background-color: "darkblue";
+}
+.flagged{
+    background-color:"green";
+    color:red;
+}

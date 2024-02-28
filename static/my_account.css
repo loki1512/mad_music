@@ -1,0 +1,133 @@
+/* Global reset and basic styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #141414; /* Dark background */
+    color: #ffffff; /* Bright text */
+}
+
+a {
+    text-decoration: none;
+    color: #ffcc00; /* Dark yellow */
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #00bcd4; /* Cyan */
+}
+
+/* Header Styles */
+.header {
+    background-color: #003300; /* Dark green */
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.headerlinks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.headerlink {
+    font-size: 1.2rem;
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+.headerlink:hover {
+    color: #ffcc00;
+}
+
+.headerheading {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+}
+.container table{
+    position: relative;
+    width:30%;
+    height: 50%;
+    right: 35%;
+    left: 35%;
+}
+
+/* Content Styles */
+.content {
+    padding: 30px;
+}
+
+.textcontainer {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.playlist-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.playlist {
+    height:100px;
+    width: 250px;
+    background-color: #003366; /* Dark blue */
+    border: 1px solid #002050; /* Darker blue */
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+.playlist .Button{
+    display: inline-block;
+    padding: 10px;
+    text-decoration: none;
+    color: darkblue;
+    background-color:lightblue;
+    margin-right: 50px;
+    margin-left: 50px;
+    margin-top: 30px;
+    margin-bottom: 100px;
+    border-radius: 5px;
+}
+
+.playlist .Button:hover{
+    display: inline-block;
+    padding: 10px;
+    text-decoration: none;
+    color: lightblue;
+    background-color:green;
+    margin-right: 50px;
+    margin-left: 50px;
+    margin-top: 30px;
+    margin-bottom: 60px;
+    border-radius: 5px;
+}
+
+
+.playlist:hover {
+    transform: translateY(-2px);
+}
+
+/* Footer Styles */
+footer {
+    height: 100px;
+    width: 100%;
+    background-color: #333333; /* Dark grey */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff; /* Bright text */
+    text-align: center;
+}
+
+.container{
+    text-align: center;
+    align-items: center;
+}

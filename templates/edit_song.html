@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Song</title>
+    <link rel="stylesheet" href="/static/add_song.css">
+</head>
+<body>
+    <h1>Edit Song</h1>
+    <form action="edit" method="POST" class="form">
+        <label for="song_name" class="label" >Song Name</label>
+        <input type="text" id="name" name="name" class="input" value={{song.song_name}}>
+        <label for="lyrics" class="label">Lyrics</label>
+        <textarea name="lyrics" id="lyrics" cols="30" rows="20" class="textarea">{{song.lyrics}}</textarea>
+        <input type="submit" value="Edit" class="button">
+    </form>
+</body>
+</html>

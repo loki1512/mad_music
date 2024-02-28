@@ -1,0 +1,31 @@
+/* Global reset and basic styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #141414; /* Dark background */
+    color: #ffffff; /* Bright text */
+}
+
+input[type="text"],
+input[type="submit"] {
+    margin-bottom: 10px;
+    padding: 8px;
+    border-radius: 4px;
+    border: none;
+}
+
+input[type="text"] {
+    width: 200px;
+}
+
+input[type="submit"] {
+    background-color: #ffcc00; /* Dark yellow */
+    color: #003300; /* Dark green */
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #00bcd4; /* Cyan */
+    color: navy;
+}

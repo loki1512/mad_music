@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/create_new_playlist.css">
+    <title>Create New Playlist</title>
+</head>
+<body>
+    <form action="/{{user.username}}/{{song.song_id}}/create_new_playlist" method="post">
+        <p>
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name">
+        </p>
+        <input type="submit" value="Create">
+    </form>
+</body>
+</html>

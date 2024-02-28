@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Songs</title>
+    <link rel="stylesheet" href="/static/all_songs.css">
+</head>
+<body>
+    <div class="header">
+        <div class="headerlinks">
+            <a href="#" class="headerheading">MAD MUSIC</a>
+            <a href="#" class="headerlink" >Logged in as {{user.nickname}} |</a>
+            
+            {%if user.usertype==2%}
+            <a href="/admin" class="headerlink" >Dashboard |</a>
+            {%else%}
+            <a href="/{{user.username}}/home" class="headerlink" >Home |</a>
+            {%endif%}
+            <a href="#" class="headerlink"> Explore |</a>
+            <a href="/{{user.username}}/creator" class="headerlink"> Creator Space |</a>
+            <a href="/{{user.username}}/my_space" class="headerlink"> My Space</a>
+        </div>
+    </div>
+    <div class="container">
+        <h1>All Playlists</h1>
+        <table class="songs-table">
+            <thead>
+                <tr>
+                    <th>Playlist</th>
+                    <th>Creator</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for playlist in playlists %}
+                    <tr>
+                        <td>{{playlist.Playlist_name}}</td>
+                        <td>{{playlist.created_by}}</td>
+                        <td>
+                            <a href="/{{user.username}}/{{playlist.id}}/view" class="action">View</a>
+                            {%if user.username == playlist.created_by or user.usertype==2%}
+                            <a href="/{{user.username}}/{{playlist.id}}/delete_playlist" class="action">Delete</a>
+                            {%endif%}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {%if user.usertype==2%}
+        <a href="/admin">Back to Dashboard</a>
+        {%else%}
+        <a href="/{{user.username}}/home" class="button">Back to Home</a>
+        {%endif%}
+        <a href="/{{user.username}}/create_playlist" class="button">Create Playlist</a>
+    </div>
+</body>
+</html>

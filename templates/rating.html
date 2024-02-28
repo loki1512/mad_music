@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/name_playlist.css">
+    <title>Rate song</title>
+</head>
+<body>
+    <div class="form-container">
+    <form action="/{{user.username}}/{{song.song_id}}/rate" method="post" class='playlist-form'>
+        <label for="rating">Rating (Out of 5)</label>
+        <input type="number" name="rating" id="rating" min="0" max="5">
+        <input type="submit" value="Submit">
+    </form>
+    </div>
+</body>
+</html>

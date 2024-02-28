@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Songs</title>
+    <link rel="stylesheet" href="/static/all_songs.css">
+</head>
+<body>
+    <div class="header">
+        <div class="headerlinks">
+            <a href="#" class="headerheading">Search Results</a>
+            <form id="form" role="search" class="headerlinks" action="/{{user.username}}/creator" method="POST">
+                <label for="query" class="headerlink">Search</label>
+                <input class="search" type="search" name="query" id="query" placeholder="Search..." aria-label="Search through site content">
+                <input type="submit" value="Go">
+            </form>
+            {%if user.usertype==2%}
+            <a href="/admin" class="headerlink" >Dashboard |</a>
+            {%else%}
+            <a href="/{{user.username}}/creator" class="headerlink" >Home |</a>
+            {%endif%}
+            <a href="#" class="headerlink"> Explore |</a>
+            <a href="/{{user.username}}/playlists" class="headerlink"> Playlists |</a>
+            <a href="/{{user.username}}/my_space" class="headerlink"> My Space</a>
+        </div>
+    </div>
+    <div class="container">
+        <h1>Search results for {{search}}</h1>
+        <h1>Your Songs</h1>
+        <table class="songs-table">
+            <thead>
+                <tr>
+                    <th>Songs</th>
+                    <th>Creator</th>
+                    <th>Genre</th>
+                    <th>Rating</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for song in songs %}
+                    <tr>
+                        <td>{{song.song_name}}</td>
+                        <td>{{song.creator}}</td>
+                        <td>{{song.genre}}</td>
+                        <td>5</td>
+                        <td>
+                            <a href="/{{user.username}}/{{song.song_id}}/read_lyrics" class="action">View</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <h1>Your Playlists</h1>
+        <table class="songs-table">
+            <thead>
+                <tr>
+                    <th>Playlist</th>
+                    <th>Creator</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for playlist in playlists %}
+                    <tr>
+                        <td>{{playlist.Playlist_name}}</td>
+                        <td>{{playlist.created_by}}</td>
+                        <td>
+                            <a href="/{{user.username}}/{{playlist.id}}/view" class="action">View</a>
+                            {%if user.username==playlist.created_by or user.usertype==2%}
+                            <a href="/{{user.username}}/{{playlist.id}}/delete_playlist" class="action">Delete</a>
+                            {%endif%}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/{{user.username}}/creator">Back to Creator Space</a>
+    </div>
+</body>
+</html>

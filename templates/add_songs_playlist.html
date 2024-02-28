@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/add_songs_playlist.css">
+    <title>Add Songs into {{name}}</title>
+</head>
+<body>
+    <form action="../{{name}}/add_songs" method="post">
+        <h1>Add Songs into {{name}}</h1>
+        <table class="songs-table">
+            <thead>
+                <tr>
+                    <th>Select</th>
+                    <th>Songs</th>
+                    <th>Creator</th>
+                    <th>Genre</th>
+                    <th>Rating</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {% for song in songs %}
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="song_ids" id="{{ loop.index }}" value="{{ song.song_id }}">
+                        </td>
+                        <td>{{ song.song_name }}</td>
+                        <td>{{ song.creator }}</td>
+                        <td>{{ song.genre }}</td>
+                        <td>{{ song.rating }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+            
+        </table>
+        <input type="submit" value="Add">
+    </form>
+</body>
+</html>

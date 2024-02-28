@@ -1,0 +1,79 @@
+/* Basic CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+header {
+    background-color: #123f15;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh; /* Occupy full viewport height */
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #1c7220;
+    padding: 20px;
+    color:#f0f0f0;
+    height: 100%; /* Occupy full height of container */
+}
+
+.sidebar nav ul {
+    list-style-type: none;
+}
+
+.sidebar nav ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar nav ul li a {
+    text-decoration: none;
+    color: #f0f0f0;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto; /* Enable scrolling for main content */
+    background-color: rgb(5, 4, 6);
+    color: white;
+}
+
+.summary {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.summary-block {
+    background-color: #111196;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    flex: 1;
+    margin: 0 10px;
+}
+
+.summary-block h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.summary-block p {
+    font-size: 24px;
+    font-weight: bold;
+}

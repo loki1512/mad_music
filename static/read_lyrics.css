@@ -1,0 +1,103 @@
+
+.header {
+    background-color: #003300; /* Dark green */
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.headerlinks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.headerlink {
+    font-size: 1.2rem;
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+.headerlink:hover {
+    color: #ffcc00;
+}
+
+.headerheading {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+}
+.search{
+    font-size: 1.2rem;
+    color: black;
+    transition: color 0.3s ease;
+}
+
+.container {
+    margin: 20px;
+    padding: 10px;
+    display: flex;
+    color: aliceblue;
+    justify-content: space-around;
+    background-color: #001a4d; /* Dark blue */
+    border: 1px solid #003366; /* Darker blue border */
+    border-radius: 5px;
+}
+.container span{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+/* Lyrics Container Styles */
+.lyrics_container {
+    white-space: pre-line;
+    margin: 20px;
+    padding: 20px;
+    background-color: #00264d; /* Darker blue background */
+    border: 1px solid #003d99; /* Slightly lighter border */
+    border-radius: 5px;
+    color:#ffffff
+}
+
+.lyrics_container h1 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.lyrics_container p {
+    line-height: 1.6;
+    color: aliceblue;
+    text-align: center;
+}
+
+/* Actions Styles */
+.actions {
+    margin: 20px;
+    padding: 10px;
+    display: flex;
+    color: aliceblue;
+    justify-content: space-around;
+    background-color: #001a4d; /* Dark blue */
+    border: 1px solid #003366; /* Darker blue border */
+    border-radius: 5px;
+    
+}
+
+.actions a {
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    color: darkblue;
+    background-color: lightblue;
+}
+
+.actions a:hover {
+    background-color: #00264d; /* Darker blue on hover */
+    color: white;
+}

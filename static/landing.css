@@ -1,0 +1,147 @@
+body{
+    overflow: hidden;
+    background-image: url("/static/madmusic.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+a.HeaderHeading{
+    display: block;
+    text-align: center;
+    font-size:x-large;
+    text-decoration: none;
+    color: lightblue;
+}
+.HeaderContent{
+    display: block;
+    text-align: right;
+    text-decoration: none;
+    color: lightblue;
+   /* background-color: darkgoldenrod;*/
+    padding: 0px 10px 2px 0px;
+}
+a.LandingHeaderContent{
+    display: inline-block;
+    text-align: right;
+    text-decoration: none;
+    color: lightblue;
+    background-color: darkblue;
+    padding: 0px 10px 2px 0px;
+}
+
+a.LandingHeaderContent:hover{
+    display: inline-block;
+    text-align: right;
+    text-decoration: none;
+    color:azure;
+    padding: 0px 10px 2px 0px;
+}
+
+.Header{
+    display: block;
+    background-color:darkblue;
+    color: lightblue;
+    border-radius: 5px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.Content .container .welcome{
+    display: block;
+    font-size: xx-large;
+    text-align: center;
+    color: lightblue;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.Content .container .Button{
+    display: inline-block;
+    padding: 10px;
+    text-decoration: none;
+    color: lightblue;
+    background-color:green;
+    margin-right: 50px;
+    margin-left: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 5px;
+}
+.Content .container .Button:hover{
+    display: inline-block;
+    padding: 10px;
+    text-decoration: none;
+    color: darkblue;
+    background-color:lightblue;
+    margin-right: 50px;
+    margin-left: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 5px;
+}
+.Content .container .buttons{
+    display: block;
+    text-align: center;
+}
+.Content .container{
+    background-color: darkblue;
+    margin-top: 200px;
+    padding: 10px;
+    margin-bottom: 200px;
+    border-radius: 5px;
+    margin-right: 200px;
+    margin-left: 200px;
+}
+.Content .login{
+    border: 1px solid lightblue;
+    background-color: rgb(5, 5, 140);
+    border-radius: 5px;
+    margin: 10px 100px 10px 100px;
+    color: aliceblue;
+    text-align: center;
+}
+
+.Content .container .login .field{
+    display: block-inline;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    padding: 10px;
+    border-radius: 5px;
+    color: lightblue;
+    font-family: cursive;
+}
+.Content .container .login .field input{
+    display: block-inline;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    color: darkblue;
+    font-family: cursive;
+}
+.Content .container .login .field .Button{
+    color: darkblue;
+    display: block;
+    background-color: darkcyan;
+    text-align: center;
+    width: 30%;
+    margin-top: 10px;
+    margin-left: 100px;
+    background-color: lightblue;
+    
+}
+.Content .container .login .field .Button:hover{
+    color: lightblue;
+    background-color: darkblue;
+}
+.Footer .copy{
+    display: block;
+    text-align: center;
+    font-family: cursive;
+    color: lightblue;
+    background-color: darkblue;
+}
+.Footer{
+    display: block;
+    border-radius: 5px;
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+}
